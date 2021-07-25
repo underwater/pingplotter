@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EndPoint } from 'src/model/endpoint';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ping-plotter';
+  model = new EndPoint('google', 'www.google.com');
+
+  onSubmit() {
+    console.log("clicked");
+  }
 }
