@@ -7,10 +7,5 @@ import { EndPoint } from 'src/model/endpoint';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ping-plotter';
-  model = new EndPoint('google', 'www.google.com');
 
-  onSubmit() {
-    console.log("clicked");
-  }
 }
