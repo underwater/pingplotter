@@ -1,18 +1,21 @@
 const express = require("express");
 const MongoDbConnect = require("./models");
-const morgan = require("morgan");
-const cors = require("cors");
+const { MiddlewareSetup } = require("./middleware");
 
 const EndpointsController = require("./controllers/endpoints.controller");
 
 (async() => {
     try {
+        // Boot 
         await MongoDbConnect();
         const app = express();
-        app.use(express.json());
-        app.use(morgan("short"));
-        app.use(cors());
+        // End of boot
 
+        // Middleware
+        MiddlewareSetup(app);
+        // End of middleware
+
+        // Controller configuration
         app.use("/api/endpoints", EndpointsController);
 
         app.listen(3000, () => {

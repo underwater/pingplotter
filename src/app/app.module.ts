@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListEndpointComponent } from './list-endpoint/list-endpoint.component';
 import { AddEndpointComponent } from './add-endpoint/add-endpoint.component';
+import { BootstrapButtonDirective } from './bootstrap-button.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListEndpointComponent,
-    AddEndpointComponent
+    AddEndpointComponent,
+    BootstrapButtonDirective
   ],
   imports: [
     BrowserModule,
