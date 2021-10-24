@@ -1,8 +1,16 @@
 const mongoose = require("mongoose");
 
 const EndpointSchema = new mongoose.Schema({
-    name: String,
-    url: String,
+    name: {
+        type: String,
+        index: true,
+        unique: true
+    },
+    url: {
+        type: String,
+        index: true,
+        unique: true
+    },
     snapshots: {
         type: Array,
         default: []
