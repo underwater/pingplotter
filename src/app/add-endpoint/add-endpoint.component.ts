@@ -8,7 +8,7 @@ import { EndPoint } from 'src/model/endpoint';
 })
 export class AddEndpointComponent implements OnInit {
   title = 'ping-plotter';
-  model = new EndPoint('google', 'www.google.com');
+  model = new EndPoint(1, 'google', 'www.google.com');
 
   constructor() { }
 
