@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EndPoint } from 'src/model/endpoint';
 import { EndpointService } from '../_services/endpoint.service';
+import { FakeEndpointService } from '../_services/fake-endpoint.service';
 
 @Component({
   selector: 'list-endpoint',

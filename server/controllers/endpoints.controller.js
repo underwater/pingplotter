@@ -14,7 +14,7 @@ router.post("",  async (req, res, next) => {
         if (existing) {
             await endpointsQueue.add(existing, {
                 attempts: 3
-            });   
+            });
             return res.send(existing);
         }
         else {
