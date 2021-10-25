@@ -5,7 +5,7 @@ const cors = require("cors");
 function MiddlewareSetup(app) {
     app.use(express.json());
     app.use(morgan("short"));
-    app.use(cors());    
+    app.use(cors());
 }
 
 module.exports = {
