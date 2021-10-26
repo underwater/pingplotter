@@ -7,19 +7,23 @@ import { AppComponent } from './app.component';
 import { ListEndpointComponent } from './list-endpoint/list-endpoint.component';
 import { AddEndpointComponent } from './add-endpoint/add-endpoint.component';
 import { BootstrapButtonDirective } from './bootstrap-button.directive';
+import { ChartComponent } from './chart/chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListEndpointComponent,
     AddEndpointComponent,
-    BootstrapButtonDirective
+    BootstrapButtonDirective,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent ]
