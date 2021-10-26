@@ -6,6 +6,7 @@
       <th>ID</th>
       <th>NAME</th>
       <th>URL</th>
+      <th>Status</th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +14,10 @@
       <td>{{ep.id}}</td>
       <td>{{ep.name}}</td>
       <td>{{ep.url}}</td>
+      <td><app-chart
+        [data]="[450, 370, 600, 700, 460]"
+        [labels]="['a', 'b', 'c', 'd', 'e']"
+        ></app-chart></td>
     </tr>
 
   </tbody>
