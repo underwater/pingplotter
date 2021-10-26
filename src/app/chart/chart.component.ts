@@ -27,6 +27,8 @@ export class ChartComponent implements OnInit {
   title = 'bar-chart';
   barChartOptions: ChartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
+
   };
   barChartLabels: Label[] = [];
   barChartType: ChartType = 'bar';
