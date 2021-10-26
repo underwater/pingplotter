@@ -4,7 +4,15 @@
     <!-- how should these two components communicate  -->
     <!-- <add-endpoint></add-endpoint> -->
     <list-endpoint></list-endpoint>
-    <app-chart></app-chart>
+
+    <!-- why passing labels as input property not working -->
+
+    <app-chart
+      [data]="[45, 37, 60, 70, 46]"
+      [labels]="['pending', 'InProgress', 'OnHold', 'Complete', 'Cancelled']"
+      >
+
+  </app-chart>
   </div>
 </div>
 

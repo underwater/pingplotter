@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
 
@@ -7,14 +7,30 @@ import { Label, Color } from 'ng2-charts';
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss']
 })
-export class ChartComponent {
+
+
+export class ChartComponent implements OnInit {
+
+  @Input() data: number[] = [];
+  @Input () labels: string[]=[];
+
+
+  ngOnInit(): void {
+    console.log(`input passed: ${this.data}`);
+    this.barChartData =  [
+      { data: this.data, label: 'Endpoint Status' }
+    ];
+    this.barChartLabels =this.labels;
+
+  }
+
   title = 'bar-chart';
   barChartOptions: ChartOptions = {
     responsive: true,
   };
-  barChartLabels: Label[] = ["Pending", "InProgress", "OnHold", "Complete", "Cancelled"];
+  barChartLabels: Label[] = [];
   barChartType: ChartType = 'bar';
-  barChartLegend = true;
+  barChartLegend = false;
   barChartPlugins:any = {'backgroundColor': [
     "#FF6384",
     "#4BC0C0",
@@ -26,7 +42,5 @@ export class ChartComponent {
   { backgroundColor: 'green' },
 ]
 
-  barChartData: ChartDataSets[] = [
-    { data: [45, 37, 60, 70, 46], label: 'Endpoint Status' }
-  ];
-}
+  barChartData: ChartDataSets[] = [];
+ }
