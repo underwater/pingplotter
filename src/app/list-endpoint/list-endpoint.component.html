@@ -1,5 +1,5 @@
 
-    <add-endpoint (OnAdd)="AddEndPoint($event)"></add-endpoint>
+<add-endpoint (OnAdd)="AddEndPoint($event)"></add-endpoint>
 
 <table class="table table-bordered table-hover m-2">
   <thead class="table-dark">
@@ -8,6 +8,8 @@
       <th>NAME</th>
       <th>URL</th>
       <th>Status</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -15,10 +17,24 @@
       <td>{{ep.id}}</td>
       <td>{{ep.name}}</td>
       <td>{{ep.url}}</td>
-      <td><app-chart
-        [data]="[450, 370, 600, 700, 460]"
-        [labels]="['a', 'b', 'c', 'd', 'e']"
-        ></app-chart></td>
+      <td>
+        <app-chart
+          [data]="[45, 37, 60, 70, 46]"
+          [labels]="['a', 'b', 'c', 'd', 'e']"
+          >
+        </app-chart>
+      </td>
+      <td>
+
+          <a class="btn btn-primary mr-2">
+                    <i class="fas fa-edit"></i>
+          </a>
+      </td>
+      <td>
+         <a class="btn  btn-danger mr-2">
+                  <i class="fas fa-trash"></i>
+         </a>
+      </td>
     </tr>
 
   </tbody>

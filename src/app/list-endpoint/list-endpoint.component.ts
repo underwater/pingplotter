@@ -24,6 +24,7 @@ export class ListEndpointComponent implements OnInit {
 
   async AddEndPoint(endPoint: EndPoint){
     let newEndPoint = await this.service.Add(endPoint);
+    this.EndPoints.unshift(newEndPoint);//unshift-->  like push, except it adds elements to the beginning of the array instead of the end.
   }
 
 }
