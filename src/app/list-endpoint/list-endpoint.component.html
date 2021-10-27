@@ -14,7 +14,7 @@
   </thead>
   <tbody>
     <tr  *ngFor="let ep of EndPoints">
-      <td>{{ep.id}}</td>
+      <td>{{ep._id}}</td>
       <td>{{ep.name}}</td>
       <td>{{ep.url}}</td>
       <td>
@@ -26,12 +26,12 @@
       </td>
       <td>
 
-          <a class="btn btn-primary mr-2">
+          <a class="btn btn-primary mr-2" (click)="Edit(ep)">
                     <i class="fas fa-edit"></i>
           </a>
       </td>
       <td>
-         <a class="btn  btn-danger mr-2">
+         <a class="btn  btn-danger mr-2" (click)="Delete(ep)">
                   <i class="fas fa-trash"></i>
          </a>
       </td>

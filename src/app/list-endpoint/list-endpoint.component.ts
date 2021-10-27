@@ -27,4 +27,21 @@ export class ListEndpointComponent implements OnInit {
     this.EndPoints.unshift(newEndPoint);//unshift-->  like push, except it adds elements to the beginning of the array instead of the end.
   }
 
+
+ async Delete(endPoint: EndPoint){
+    console.log(`deleting: ${endPoint.name}`);
+
+    // delete on server
+    let result = await this.service.Delete(endPoint);
+
+    // why this delete isn't refreshing the list?
+    // remove from client list
+    debugger;
+    this.EndPoints = this.EndPoints.filter(item => item._id !== endPoint._id);
+  }
+
+  async Edit(ep: EndPoint){
+    console.log(`editing : ${ep.name}`);
+  }
+
 }
