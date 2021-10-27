@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EndPoint } from 'src/model/endpoint';
 
 @Component({
@@ -11,11 +11,9 @@ export class AddEndpointComponent implements OnInit {
 
   @Output() OnAdd:EventEmitter<EndPoint> =new EventEmitter<EndPoint>();
 
-  endpoint = new EndPoint(1, 'google', 'www.google.com');
-
   endPointForm = new FormGroup({
-    name: new FormControl('initial name'),
-    url: new FormControl('initial url')
+    name: new FormControl('', Validators.required),
+    url: new FormControl('', Validators.required)
   })
 
 

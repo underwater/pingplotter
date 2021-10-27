@@ -22,8 +22,8 @@ export class ListEndpointComponent implements OnInit {
 
   }
 
-  AddEndPoint(endPoint: EndPoint){
-    console.log(`list detecting adding endpoint : ${endPoint.name} - ${endPoint.url}`)
+  async AddEndPoint(endPoint: EndPoint){
+    let newEndPoint = await this.service.Add(endPoint);
   }
 
 }
