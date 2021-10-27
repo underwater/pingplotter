@@ -22,4 +22,8 @@ export class ListEndpointComponent implements OnInit {
 
   }
 
+  AddEndPoint(endPoint: EndPoint){
+    console.log(`list detecting adding endpoint : ${endPoint.name} - ${endPoint.url}`)
+  }
+
 }

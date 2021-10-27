@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { EndPoint } from 'src/model/endpoint';
 
 @Component({
@@ -7,15 +8,25 @@ import { EndPoint } from 'src/model/endpoint';
   styleUrls: ['./add-endpoint.component.scss']
 })
 export class AddEndpointComponent implements OnInit {
-  title = 'ping-plotter';
-  model = new EndPoint(1, 'google', 'www.google.com');
+
+  @Output() OnAdd:EventEmitter<EndPoint> =new EventEmitter<EndPoint>();
+
+  endpoint = new EndPoint(1, 'google', 'www.google.com');
+
+  endPointForm = new FormGroup({
+    name: new FormControl('initial name'),
+    url: new FormControl('initial url')
+  })
+
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-    console.log("clicked");
+  onAdd() {
+    let endpoint = this.endPointForm.value;
+    this.OnAdd.emit(endpoint);
+    console.log(endpoint);
   }
 }
