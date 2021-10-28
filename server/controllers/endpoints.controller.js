@@ -40,7 +40,10 @@ router.post("",  async (req, res, next) => {
 router.delete("/:id", (req, res, next) => {
     Endpoint.remove({
         _id: req.params.id
-    }).then(() => res.sendStatus(200)).catch(err => next(err));
+    }).then(() => res.json({status: "ok"}))
+    .catch(err => next(err));
 });
 
 module.exports = router;
+
+
