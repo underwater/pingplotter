@@ -2,17 +2,14 @@
 <div class="container">
   <div class="row">
     <!-- how should these two components communicate  -->
+    <nav class="nav navbar bg-dark text-light">
+      <a class="btn text-light btn-outline-warning" routerLinkActive="active" routerLink="/endpoints">Home</a>
+      <!-- <a class="btn text-light btn-outline-warning" routerLinkActive="active" routerLink="/customers">Customers</a>
+      <a class="btn text-light btn-outline-warning" routerLinkActive="active" routerLink="/settings">Settings</a> -->
+  </nav>
 
-    <list-endpoint></list-endpoint>
+    <router-outlet></router-outlet>
 
-    <!-- why passing labels as input property not working -->
-
-    <!-- <app-chart
-      [data]="[45, 37, 60, 70, 46]"
-      [labels]="['pending', 'InProgress', 'OnHold', 'Complete', 'Cancelled']"
-      >
-
-  </app-chart> -->
   </div>
 </div>
 
