@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { EndPoint } from 'src/model/endpoint';
 import { EndpointService } from '../_services/endpoint.service';
 import { FakeEndpointService } from '../_services/fake-endpoint.service';
@@ -12,7 +13,7 @@ export class ListEndpointComponent implements OnInit {
   public EndPoints : EndPoint[] = [];
 
 
-  constructor(private service : EndpointService) { }
+  constructor(private service : EndpointService, private toastr: ToastrService) { }
 
   async ngOnInit() {
 
@@ -23,8 +24,14 @@ export class ListEndpointComponent implements OnInit {
   }
 
   async AddEndPoint(endPoint: EndPoint){
-    let newEndPoint = await this.service.Add(endPoint);
-    this.EndPoints.unshift(newEndPoint);//unshift-->  like push, except it adds elements to the beginning of the array instead of the end.
+    try {
+      let newEndPoint = await this.service.Add(endPoint);
+      //unshift-->  like push, except it adds elements to the beginning of the array instead of the end.
+      this.EndPoints.unshift(newEndPoint);
+    } catch (error) {
+      this.toastr.error('unable to save')
+    }
+
   }
 
 

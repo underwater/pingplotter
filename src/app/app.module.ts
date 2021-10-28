@@ -9,7 +9,8 @@ import { AddEndpointComponent } from './add-endpoint/add-endpoint.component';
 import { BootstrapButtonDirective } from './bootstrap-button.directive';
 import { ChartComponent } from './chart/chart.component';
 import { ChartsModule } from 'ng2-charts';
-
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,8 +23,10 @@ import { ChartsModule } from 'ng2-charts';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent ]
