@@ -1,11 +1,10 @@
+<form (ngSubmit)="onAdd()" class="" [formGroup]="endPointForm">
+  <div class="form-group d-flex">
 
-  <form (ngSubmit)="onAdd()"  [formGroup]="endPointForm">
-       <div class="form-group" >
-        <label for="name">Name</label>
-        <input type="text" class="form-control" formControlName="name" >
-          <label for="url">Url</label>
-          <input type="text" class="form-control"  formControlName="url">
-      </div>
+    <input type="text" class="form-control m-2" formControlName="name" placeholder="Name">
 
-      <button type="submit"  bootstrapButton btnType="primary" >Add</button>
-  </form>
+    <input type="text" class="form-control m-2" formControlName="url" placeholder="Url">
+
+    <button type="submit" class="btn btn-outline-primary m-2">Add</button>
+  </div>
+</form>
