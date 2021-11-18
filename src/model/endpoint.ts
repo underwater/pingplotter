@@ -1,8 +1,12 @@
-export class EndPoint {
-  constructor(
-    public _id: number,
-    public name: string,
-    public url: string
+export interface EndPoint {
+    _id: string;
+    name: string;
+    url: string;
+    snapshots: Snapshot[];
+    times: number[];
+}
 
-  ) { }
+export interface Snapshot {
+  time: number;
+  createdAt: string;
 }

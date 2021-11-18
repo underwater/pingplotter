@@ -22,9 +22,9 @@ constructor(private http: HttpClient){
 
 }
 
-  GetAll(): Promise<EndPoint[]>  {
+  async GetAll(): Promise<EndPoint[]>  {
     let URL = `http://localhost:3000/api/endpoints`;
-    let result = this.http.get<EndPoint[]>(URL).toPromise();
+    let result = await this.http.get<EndPoint[]>(URL).toPromise();
     console.log(`result of GET method: ${result}`);
     return result;
   };

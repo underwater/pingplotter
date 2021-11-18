@@ -10,7 +10,22 @@ import { FakeEndpointService } from '../_services/fake-endpoint.service';
   styleUrls: ['./list-endpoint.component.scss']
 })
 export class ListEndpointComponent implements OnInit {
-  public EndPoints : EndPoint[] = [];
+
+  onEndPointsChanged() {
+    this._endpoints.forEach(e => {
+      e.times = e.snapshots.map(s => s.time);
+    })
+  }
+  
+  private _endpoints: EndPoint[] = [];
+  public get EndPoints() : EndPoint[] {
+    return this._endpoints;
+  }
+
+  public set EndPoints(value) {
+    this._endpoints = value;
+    this.onEndPointsChanged();
+  }
 
 
   constructor(private service : EndpointService, private toastr: ToastrService) { }

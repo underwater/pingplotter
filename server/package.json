@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "npm i nodemon -g",
-    "start": "nodemon index.js"
+    "start": "pm2 start ecosystem.config.js && pm2 logs all"
   },
   "keywords": [],
   "author": "",

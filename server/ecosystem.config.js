@@ -1,22 +1,20 @@
 module.exports = {
-  apps : [{
-    script: 'index.js',
-    watch: '.'
-  }, {
-    script: './workers/',
-    watch: ['./workers/']
-  }],
+    apps: [{
+        name: "web",
+        script: 'index.js',
+        watch: true,
+        ignore_watch: ["./workers/"],
+        exec_mode: "cluster",
+        instances: "2",
+        env: {
 
-  deploy : {
-    production : {
-      user : 'SSH_USERNAME',
-      host : 'SSH_HOSTMACHINE',
-      ref  : 'origin/master',
-      repo : 'GIT_REPOSITORY',
-      path : 'DESTINATION_PATH',
-      'pre-deploy-local': '',
-      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production',
-      'pre-setup': ''
-    }
-  }
+        }
+    }, {
+        name: "worker",
+        script: './workers/index.js',
+        watch: true,
+        exec_mode: "cluster",
+        instances: "4",
+        env: {}
+    }]
 };

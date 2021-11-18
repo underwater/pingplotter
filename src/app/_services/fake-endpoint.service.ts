@@ -11,8 +11,20 @@ export class FakeEndpointService {
 
 
       let endPoints:EndPoint[] =[];
-    var google =  new EndPoint(1, 'google', 'www.google.com');
-    var yahoo =  new EndPoint(1, 'yahoo', 'www.yahoo.com');
+    var google: EndPoint =  {
+      _id: "1",
+      name: "google",
+      url: "www.google.com",
+      snapshots: [],
+      times: []
+    };
+    var yahoo: EndPoint =  {
+      _id: "2",
+      name: "Yahoo",
+      url: "yahoo.com",
+      snapshots: [],
+      times: []
+    }
     endPoints.push(google);
     endPoints.push(yahoo);
     return new Promise((res) => res(endPoints));
