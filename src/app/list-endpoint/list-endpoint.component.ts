@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { EndPoint } from 'src/model/endpoint';
+import { WorkerResponse } from "src/model/worker-response";
 import { EndpointService } from '../_services/endpoint.service';
 import { FakeEndpointService } from '../_services/fake-endpoint.service';
 
@@ -25,10 +26,32 @@ export class ListEndpointComponent implements OnInit {
 
   async ngOnInit() {
 
-
     this.EndPoints = await this.service.GetAll();
+    this.initializeEndpointsWorker();
 
+  }
 
+  private initializeEndpointsWorker() {
+    if (typeof Worker !== "undefined") {
+      const worker = new Worker(new URL("../endpoints-worker.worker.ts", import.meta.url));
+      
+
+      worker.onmessage = message => {
+        let event: WorkerResponse<EndPoint[]> = message.data;
+        if (typeof event === "object" && event.type && event.type == "Endpoints.Received")   {
+          this.EndPoints = event.body;
+        }
+      };
+
+      worker.postMessage({
+        type: "Endpoints.GetAll"
+      });
+    }
+    else {
+      setInterval(async () => {
+        this.EndPoints = await this.service.GetAll();
+      }, 5000);
+    }
   }
 
   async AddEndPoint(endPoint: EndPoint){
