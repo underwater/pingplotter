@@ -1,6 +1,7 @@
 
 <add-endpoint (OnAdd)="AddEndPoint($event)"></add-endpoint>
 
+
 <table class="table table-bordered table-hover m-2">
   <thead class="table-light">
     <tr>
@@ -18,10 +19,7 @@
       <td>{{ep.name}}</td>
       <td>{{ep.url}}</td>
       <td>
-        <app-chart
-          [data]="ep.times"
-          >
-        </app-chart>
+        <snapshots-chart [endpoint]="ep"></snapshots-chart>
       </td>
       <td>
 

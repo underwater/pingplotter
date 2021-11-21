@@ -11,13 +11,15 @@ import { ChartComponent } from './chart/chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SnapshotsChartComponent } from './snapshots-chart/snapshots-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
     ListEndpointComponent,
     AddEndpointComponent,
     BootstrapButtonDirective,
-    ChartComponent
+    ChartComponent,
+    SnapshotsChartComponent
   ],
   imports: [
     BrowserModule,

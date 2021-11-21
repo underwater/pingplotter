@@ -11,12 +11,6 @@ import { FakeEndpointService } from '../_services/fake-endpoint.service';
 })
 export class ListEndpointComponent implements OnInit {
 
-  onEndPointsChanged() {
-    this._endpoints.forEach(e => {
-      e.times = e.snapshots.map(s => s.time);
-    })
-  }
-  
   private _endpoints: EndPoint[] = [];
   public get EndPoints() : EndPoint[] {
     return this._endpoints;
@@ -24,7 +18,6 @@ export class ListEndpointComponent implements OnInit {
 
   public set EndPoints(value) {
     this._endpoints = value;
-    this.onEndPointsChanged();
   }
 
 

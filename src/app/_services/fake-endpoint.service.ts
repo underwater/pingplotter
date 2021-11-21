@@ -15,15 +15,13 @@ export class FakeEndpointService {
       _id: "1",
       name: "google",
       url: "www.google.com",
-      snapshots: [],
-      times: []
+      snapshots: []
     };
     var yahoo: EndPoint =  {
       _id: "2",
       name: "Yahoo",
       url: "yahoo.com",
-      snapshots: [],
-      times: []
+      snapshots: []
     }
     endPoints.push(google);
     endPoints.push(yahoo);

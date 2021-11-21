@@ -3,7 +3,6 @@ export interface EndPoint {
     name: string;
     url: string;
     snapshots: Snapshot[];
-    times: number[];
 }
 
 export interface Snapshot {
