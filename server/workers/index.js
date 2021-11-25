@@ -19,6 +19,10 @@ const {performance} = require("perf_hooks");
             });
             await Endpoint.updateOne({_id: endpoint._id}, dbEndpoint.toJSON());
             console.log(`Request handled in ${diff}ms`);
+            console.log("Rescheduling");
+            await endpointsQueue.add(endpoint, {
+                delay: 5000
+            });
         }
         catch(e) {
             console.log(e);

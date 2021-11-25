@@ -13,17 +13,19 @@ router.post("",  async (req, res, next) => {
         });
         if (existing) {
             await endpointsQueue.add(existing, {
-                attempts: 3
+                // attempts: 3
             });
             return res.send(existing);
         }
         else {
             let created = await Endpoint.insertMany([req.body]);
             let endpoint = created[0];
-            await endpointsQueue.add(endpoint, {
-                attempts: 3,
-                repeat: {cron: "* * * * *"}
-            });
+            await endpointsQueue.add(endpoint
+                // {
+                //     attempts: 3,
+                //     repeat: {cron: "* * * * *"}
+                // }
+            );
             return res.send(endpoint);
         }
     }
